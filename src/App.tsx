@@ -1,11 +1,14 @@
 import { useState } from "react";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import KanbanBoard from "./components/KanbanBoard";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="App">
-      <header className="App-header text-red-500">XSF</header>
+    <div className="h-screen flex flex-col items-center w-full bg-gray-800 text-gray-200">
+      <Header />
+      <KanbanBoard />
+      <Footer />
     </div>
   );
 }
