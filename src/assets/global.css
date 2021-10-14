@@ -2,3 +2,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.hide-scroll::-webkit-scrollbar {
+  visibility: hidden;
+}
+
+.hide-scroll::-webkit-resizer {
+  background-color: rgba(75, 85, 99, 1);
+}
+
+.date-picker::-webkit-inner-spin-button {
+  display: none;
+}
+
+.date-picker::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}

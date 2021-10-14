@@ -1,12 +1,14 @@
 import { useState } from "react";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
+import ReactModal from "./components/ReactModal";
+import Footer from "./components/LayoutComponents/Footer";
+import Header from "./components/LayoutComponents/Header";
 import KanbanBoard from "./components/KanbanBoard";
 
 function App() {
   return (
-    <div className="h-screen flex flex-col items-center w-full bg-gray-800 text-gray-200">
+    <div className="min-h-screen flex flex-col items-center w-full bg-gray-800 text-gray-200 z-10">
       <Header />
+      <ReactModal />
       <KanbanBoard />
       <Footer />
     </div>

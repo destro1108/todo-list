@@ -22,7 +22,7 @@ export const getTodosAPI = () => {
       };
 };
 
-export const saveTododsAPI = (todos: todoStateType) => {
+export const saveTododsAPI = (todos: todoStateType["todoItems"]) => {
   let todosStr = JSON.stringify(todos);
   localStorage.setItem(storageKey, todosStr);
 };
