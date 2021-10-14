@@ -22,10 +22,14 @@ const Footer = () => {
           </svg>
         </span>
         &nbsp;&nbsp;by&nbsp;&nbsp;
-        <a href="">D3STR0</a>
+        <a href="https://github.com/destro1108/" target="_blank">
+          D3STR0
+        </a>
       </p>
       <p className="px-8 text-xl font-semibold">
-        <a href="">GitHub</a>
+        <a href="https://github.com/destro1108/todo-list" target="_blank">
+          GitHub
+        </a>
       </p>
     </footer>
   );
