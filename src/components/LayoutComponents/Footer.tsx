@@ -2,8 +2,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="w-full h-14 px-4` py-2 flex flex-row items-center bg-gray-700 text-gray-200">
-      <p className="w-full flex flex-row font-semibold">
+    <footer className="w-full h-14 px-4 py-2 flex flex-row items-center bg-gray-700 text-gray-200">
+      <p className="w-full px-4 flex flex-row font-semibold">
         <span>Made with</span>&nbsp;&nbsp;
         <span>
           <svg
@@ -14,9 +14,9 @@ const Footer = () => {
             stroke="currentColor"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
               d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
             />
           </svg>

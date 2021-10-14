@@ -1,8 +1,8 @@
 import React from "react";
-import { setEditItem, toggleIsEditing } from "../store/slices/TodoSlice";
-import { AppDispatch } from "../store/store";
-import { formatDate } from "../utils";
-import EditTodo from "./EditTodo";
+import { setEditItem, toggleIsEditing } from "../../store/slices/TodoSlice";
+import { AppDispatch } from "../../store/store";
+import { formatDate } from "../../utils";
+import EditTodo from "../EditTodo";
 
 export interface TodoItemType {
   id: number;
@@ -48,11 +48,11 @@ const TodoItem = ({ item, dispatch }: TodoItemProps) => {
       </div>
       <div className="px-3 flex flex-col h-full w-full">
         <div className="flex flex-row items-center justify-between">
-          <p className="text-lg font-bold">{title}</p>
+          <p className="text-md md:text-lg font-bold">{title}</p>
           <p className="font-semibold">{formatDate(new Date(due_date))}</p>
         </div>
         <div className="flex flex-row items-center justify-between">
-          <p className="font-medium">{desc}</p>
+          <p className="font-medium w-32 xl:w-52  truncate">{desc}</p>
           <button onClick={handleEdit}>
             <svg
               xmlns="http://www.w3.org/2000/svg"

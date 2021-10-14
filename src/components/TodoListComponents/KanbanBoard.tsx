@@ -1,22 +1,21 @@
-import React from "react";
-import { useAppDispatch, useAppSelector } from "../store/store";
+import React, { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../store/store";
 import TodoItem, { TodoItemType } from "./TodoItem";
 import TodoList from "./TodoList";
 import { DragDropContext } from "react-beautiful-dnd";
-import {
-  addTodo,
-  editTodo,
-  fetchTodo,
-  removeTodo,
-} from "../store/slices/TodoSlice";
+import { addTodo, getTodos, removeTodo } from "../../store/slices/TodoSlice";
 
 const KanbanBoard = () => {
-  const { todoItems, tempItem } = useAppSelector((state) => state.todos);
+  const { todoItems } = useAppSelector((state) => state.todos);
   console.log(todoItems);
   const dispatch = useAppDispatch();
 
+  useEffect(() => {
+    dispatch(getTodos());
+  }, []);
+
   return (
-    <div className="grid grid-flow-row grid- md:grid-flow-col  gap-0 md:gap-x-10 w-10/12 md:w-9/12 pt-6 flex-1">
+    <div className="grid grid-flow-row md:grid-cols-3 gap-0 md:gap-x-10 w-10/12 md:w-9/12 pt-6 flex-1">
       <DragDropContext
         onDragEnd={(result, provided) => {
           if (!result.destination) {

@@ -7,7 +7,7 @@ import {
 } from "../store/slices/TodoSlice";
 import { useAppDispatch, useAppSelector } from "../store/store";
 import { formatDate } from "../utils";
-import { TodoItemType } from "./TodoItem";
+import { TodoItemType } from "./TodoListComponents/TodoItem";
 
 const EditTodo = ({ item }: { item: TodoItemType }) => {
   const dispatch = useAppDispatch();

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { addTodo, toggleIsEditing } from "../store/slices/TodoSlice";
 import { useAppDispatch, useAppSelector } from "../store/store";
 import { formatDate } from "../utils";
-import { TodoItemType } from "./TodoItem";
+import { TodoItemType } from "./TodoListComponents/TodoItem";
 
 const AddToDo = ({ status }: { status: TodoItemType["status"] }) => {
   const dispatch = useAppDispatch();
@@ -55,9 +55,18 @@ const AddToDo = ({ status }: { status: TodoItemType["status"] }) => {
       return;
     }
     let now = Date.now();
+    console.log(todo, now);
+    setTodo((oldTodo) => ({
+      ...oldTodo,
+      id: now,
+      created_at: now,
+      updated_at: now,
+    }));
     console.log(todo);
-    setTodo({ ...todo, id: now, created_at: now, updated_at: now });
-    dispatch(addTodo({ item: todo }));
+
+    dispatch(
+      addTodo({ item: { ...todo, id: now, created_at: now, updated_at: now } })
+    );
     setTodo({
       id: 0,
       title: "",

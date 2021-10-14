@@ -1,13 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getTodosAPI, saveTododsAPI } from "../../utils/fakeBackend";
-import { TodoItemType } from "../../components/TodoItem";
+import { TodoItemType } from "../../components/TodoListComponents/TodoItem";
 import React from "react";
+import { getDemoTasksAPI } from "../../utils";
 
 type todoStateKey = {};
 
 export type todoStateType = todoStateKey & {
   isEditing: boolean;
-  tempItem: null | TodoItemType;
   editItem: null | React.Component;
   todoItems: {
     [key: string]: TodoItemType[];
@@ -20,68 +20,10 @@ export type todoStateType = todoStateKey & {
 const initialState: todoStateType = {
   isEditing: false,
   editItem: null,
-  tempItem: null,
   todoItems: {
-    pending: [
-      {
-        id: 1200,
-        title: "demo",
-        desc: "demo_desc",
-        created_at: Date.now(),
-        updated_at: Date.now(),
-        due_date: Date.now(),
-        status: "pending",
-      },
-      {
-        id: 1201,
-        title: "demo",
-        desc: "demo_desc",
-        created_at: Date.now(),
-        updated_at: Date.now(),
-        due_date: Date.now(),
-        status: "done",
-      },
-    ],
-    doing: [
-      {
-        id: 1202,
-        title: "demo",
-        desc: "demo_desc",
-        created_at: Date.now(),
-        updated_at: Date.now(),
-        due_date: Date.now(),
-        status: "done",
-      },
-    ],
-    done: [
-      {
-        id: 1203,
-        title: "demo",
-        desc: "demo_desc",
-        created_at: Date.now(),
-        updated_at: Date.now(),
-        due_date: Date.now(),
-        status: "done",
-      },
-      {
-        id: 1204,
-        title: "demo",
-        desc: "demo_desc",
-        created_at: Date.now(),
-        updated_at: Date.now(),
-        due_date: Date.now(),
-        status: "done",
-      },
-      {
-        id: 1205,
-        title: "demo",
-        desc: "demo_desc",
-        created_at: Date.now(),
-        updated_at: Date.now(),
-        due_date: Date.now(),
-        status: "done",
-      },
-    ],
+    pending: [],
+    doing: [],
+    done: [],
   },
 };
 
@@ -126,14 +68,12 @@ const todoSlice = createSlice({
       );
       state.todoItems[item.status][inx] = { ...item };
     },
-    fetchTodo: (
-      state,
-      action: { payload: { id: number; status: TodoItemType["status"] } }
-    ) => {
-      let { id, status } = action.payload;
-      let item = state.todoItems[status].find((it) => it.id === id);
-      console.log(item?.title);
-      if (item) state.tempItem = item;
+    loadDemoTodos: (state) => {
+      state.todoItems = getDemoTasksAPI();
+    },
+    clearTodos: (state) => {
+      state.todoItems = { pending: [], doing: [], done: [] };
+      saveTododsAPI(state.todoItems);
     },
   },
   extraReducers: (builder) => {
@@ -151,7 +91,8 @@ export const {
   toggleIsEditing,
   setEditItem,
   editTodo,
-  fetchTodo,
+  loadDemoTodos,
+  clearTodos,
 } = todoSlice.actions;
 
 export default todoSlice.reducer;

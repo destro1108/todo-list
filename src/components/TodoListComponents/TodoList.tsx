@@ -4,9 +4,9 @@ import {
   addTodo,
   setEditItem,
   toggleIsEditing,
-} from "../store/slices/TodoSlice";
-import { useAppDispatch } from "../store/store";
-import AddToDo from "./AddToDo";
+} from "../../store/slices/TodoSlice";
+import { useAppDispatch } from "../../store/store";
+import AddToDo from "../AddToDo";
 import TodoItem, { TodoItemType } from "./TodoItem";
 
 export interface TodoListProps {

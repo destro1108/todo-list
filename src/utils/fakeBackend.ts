@@ -1,4 +1,4 @@
-import { TodoItemType } from "../components/TodoItem";
+import { TodoItemType } from "../components/TodoListComponents/TodoItem";
 import { todoStateType } from "../store/slices/TodoSlice";
 
 const storageKey = "TODOS";
