@@ -5,7 +5,7 @@ import {
   removeTodo,
   toggleIsEditing,
 } from "../store/slices/TodoSlice";
-import { useAppDispatch, useAppSelector } from "../store/store";
+import { useAppDispatch } from "../store/store";
 import { formatDate } from "../utils";
 import { TodoItemType } from "./TodoListComponents/TodoItem";
 
@@ -13,23 +13,6 @@ const EditTodo = ({ item }: { item: TodoItemType }) => {
   const dispatch = useAppDispatch();
   const [todo, setTodo] = useState<TodoItemType>({ ...item });
   const [mode, setMode] = useState<boolean>(false);
-  // useEffect(() => {
-  //   if (editItem) {
-  //     const { id, title, desc, status, created_at, updated_at, due_date } =
-  //       editItem;
-  //     setTodo({
-  //       id,
-  //       title,
-  //       desc,
-  //       status,
-  //       created_at,
-  //       updated_at,
-  //       due_date,
-  //     });
-  //     console.log(editItem.status);
-  //     console.log(todo);
-  //   }
-  // }, [editItem, setTodo]);
 
   const handleChange = (
     e: React.ChangeEvent<

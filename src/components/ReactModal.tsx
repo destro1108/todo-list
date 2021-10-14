@@ -23,16 +23,6 @@ const ReactModal = () => {
         isEditing ? "opacity-100" : "opacity-0 z-0"
       }`}
       overlayClassName="bg-transparent w-full h-full absolute left-0 top-0 bottom-0 right-0"
-
-      //   style={{
-      //     content: {
-      //       margin: "0 auto",
-      //       width: "56rem",
-      //       background: "#000",
-      //       opacity: "1",
-      //       justifySelf: "center",
-      //     },
-      //   }}
     >
       {editItem}
     </Modal>

@@ -46,8 +46,8 @@ const todoSlice = createSlice({
       action: { payload: { item: TodoItemType; startIndex?: number } }
     ) => {
       let { item, startIndex } = action.payload;
-      if (startIndex)
-        state.todoItems[item.status].splice(startIndex || -1, 0, item);
+      if (startIndex !== undefined)
+        state.todoItems[item.status].splice(startIndex, 0, item);
       else state.todoItems[item.status].push(item);
       saveTododsAPI(state.todoItems);
     },

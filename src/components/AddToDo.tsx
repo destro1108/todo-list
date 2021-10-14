@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { addTodo, toggleIsEditing } from "../store/slices/TodoSlice";
-import { useAppDispatch, useAppSelector } from "../store/store";
+import { useAppDispatch } from "../store/store";
 import { formatDate } from "../utils";
 import { TodoItemType } from "./TodoListComponents/TodoItem";
 

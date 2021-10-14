@@ -8,7 +8,6 @@ export const formatDate = (date: Date, format: number = 0) => {
         month: "short",
         year: "2-digit",
       });
-  //`${date.getDay()}-${date.getMonth()}-${date.getFullYear()}`;
 };
 
 export const getDemoTasksAPI = (): todoStateType["todoItems"] => {

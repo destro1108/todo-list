@@ -5,14 +5,6 @@ const storageKey = "TODOS";
 
 export const getTodosAPI = () => {
   let todosStr = localStorage.getItem(storageKey);
-  //   if (todosStr) return JSON.parse(todosStr);
-  //   else
-  //     return {
-  //       pending: [],
-  //       doing: [],
-  //       done: [],
-  //     };
-
   return todosStr
     ? JSON.parse(todosStr)
     : {
